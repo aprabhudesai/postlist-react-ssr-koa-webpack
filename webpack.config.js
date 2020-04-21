@@ -41,12 +41,26 @@ module.exports = function(env, argv) {
   // server-specific configuration
   if (env.platform === 'server') {
     base.target = 'node';
+    base.module.rules = [
+      ...base.module.rules,
+      {
+        test: /\.css$/i,
+        use: ['file-loader', 'css-loader'],
+      },
+    ];
   }
 
   // client-specific configurations
   if (env.platform === 'web') {
     base.entry = './src/App.tsx';
     base.output.filename = 'js/client.js';
+    base.module.rules = [
+      ...base.module.rules,
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ];
   }
 
   return base;
