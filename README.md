@@ -1,2 +1,12 @@
-# postlist-react-ssr-koa-webpack
-A simple React App that does Server Side Rendering setup using webpack &amp; babel and koa for app server
+# A Sample App that displays a list of posts
+It uses the below technologies:
+- Typescript
+- React
+- Webpack
+- Babel
+- Koa
+
+The app does server side streaming using:
+- Multistream
+- String to Stream
+- renderToNodeStream (React)
