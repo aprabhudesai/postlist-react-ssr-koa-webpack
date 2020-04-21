@@ -2,6 +2,7 @@ const html = ({ body }: { body: string }) => `
   <!DOCTYPE html>
   <html>
     <head>
+      <link rel="stylesheet" href="main.css">
       <style>
         #root {
           display: flex;
