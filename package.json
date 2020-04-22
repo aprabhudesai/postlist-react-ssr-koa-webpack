@@ -14,7 +14,6 @@
     "build:fbt": "npm run fbt:manifest; npm run fbt:collect; npm run fbt:translate",
     "fbt:manifest": "mkdir -p .fbt && node ./node_modules/babel-plugin-fbt/bin/manifest --src src --enum-manifest .fbt/enum_manifest.json --src-manifest .fbt/src_manifest.json",
     "fbt:collect": "node ./node_modules/babel-plugin-fbt/bin/collectFBT --pretty --manifest < .fbt/src_manifest.json > .fbt/source_strings.json",
-    "fbt-generate-translations": "node node_modules/fbt-generate-translations/index --src .fbt/source_strings.json --locales src/i18n/locales.js",
     "fbt:translate": "node ./node_modules/babel-plugin-fbt/bin/translate.js --pretty --translations src/i18n/translations/*.json --jenkins --source-strings .fbt/source_strings.json > src/i18n/translatedFbts.json",
     "watch-server": "nodemon ./dist/js/server.js",
     "loadtest:fbt": "node ./test/loadtest-fbt.js"
