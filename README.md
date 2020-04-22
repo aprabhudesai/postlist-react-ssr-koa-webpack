@@ -5,6 +5,7 @@
 - Webpack
 - Babel
 - Koa
+- FBT (facebook translations)
 
 ## HTML Streaming Support
 The app does server side streaming using:
