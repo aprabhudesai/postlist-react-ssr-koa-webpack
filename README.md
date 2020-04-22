@@ -21,3 +21,7 @@ The app does server side streaming using:
 4. Open 2 terminal tabs. In one tab run the build in watch mode ```npm run build```
 5. In second tab start the server ```npm run watch-server```
 6. You can access the application at ```http://localhost:8088```
+
+## Load testing the App
+1. Open a new terminal
+2. Run the command ```npm run loadtest:fbt```
