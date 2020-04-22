@@ -1,35 +1,38 @@
+// @ts-ignore
+const { fbt } = require('fbt');
+
 import Post from '../../models/post';
 
 const posts: Post[] = [
   {
-    title: 'This is first post',
+    title: fbt('This is first post', 'title: first post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'First post of the day.',
+    bodyText: fbt('First post of the day.', 'body: first post'),
   },
   {
-    title: 'This is second post',
+    title: fbt('This is second post', 'title: second post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'Second post of the day.',
+    bodyText: fbt('Second post of the day.', 'body: second post'),
   },
   {
-    title: 'This is third post',
+    title: fbt('This is third post', 'title: third post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'Thrid post of the day.',
+    bodyText: fbt('Thrid post of the day.', 'body: third post'),
   },
   {
-    title: 'This is fourth post',
+    title: fbt('This is fourth post', 'title: fourth post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'Fourth post of the day.',
+    bodyText: fbt('Fourth post of the day.', 'body: fourth post'),
   },
   {
-    title: 'This is fifth post',
+    title: fbt('This is fifth post', 'title: fifth post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'Fifth post of the day.',
+    bodyText: fbt('Fifth post of the day.', 'body: fifth post'),
   },
   {
-    title: 'This is sixth post',
+    title: fbt('This is sixth post', 'title: sixth post'),
     iconUrl: 'img/post_image.jpg',
-    bodyText: 'Sixth post of the day.',
+    bodyText: fbt('Sixth post of the day.', 'body: sixth post'),
   }
 ];
 
