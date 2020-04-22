@@ -1,5 +1,5 @@
 export default interface Post {
   iconUrl: string;
-  title: string;
-  bodyText: string;
+  title(): string;
+  bodyText(): string;
 }
