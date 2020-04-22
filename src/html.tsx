@@ -1,8 +1,8 @@
 import React from 'react';
 
-const html = ({ body }: { body: string }) => `
+const html = ({ body, locale }: { body: string, locale: string }) => `
   <!DOCTYPE html>
-  <html>
+  <html lang=${ locale }>
     <head>
       <link rel="stylesheet" href="main.css">
       <style>
