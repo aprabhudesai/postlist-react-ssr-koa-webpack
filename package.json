@@ -49,7 +49,6 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-fbt": "^0.10.4",
     "css-loader": "^3.5.2",
-    "fbt-generate-translations": "0.0.4",
     "file-loader": "^6.0.0",
     "js-beautify": "^1.11.0",
     "loadtest": "^5.0.3",
