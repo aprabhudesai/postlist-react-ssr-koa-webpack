@@ -15,8 +15,8 @@ export default ({ post }: PostProps) => {
         <img className='icon' src={ post.iconUrl } />
       </div>
       <div className='col2'>
-        <div>{ post.title }</div>
-        <div>{ post.bodyText }</div>
+        <div>{ post.title() }</div>
+        <div>{ post.bodyText() }</div>
       </div>
     </div>
   );

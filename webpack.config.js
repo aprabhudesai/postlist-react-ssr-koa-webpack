@@ -58,7 +58,7 @@ module.exports = function(env, argv) {
 
   // client-specific configurations
   if (env.platform === 'web') {
-    base.entry = './src/App.tsx';
+    base.entry = './src/client.tsx';
     base.output.filename = 'js/client.js';
   }
 
