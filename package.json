@@ -16,10 +16,8 @@
     "fbt:collect": "node ./node_modules/babel-plugin-fbt/bin/collectFBT --pretty --manifest < .fbt/src_manifest.json > .fbt/source_strings.json",
     "fbt-generate-translations": "node node_modules/fbt-generate-translations/index --src .fbt/source_strings.json --locales src/i18n/locales.js",
     "fbt:translate": "node ./node_modules/babel-plugin-fbt/bin/translate.js --pretty --translations src/i18n/translations/*.json --jenkins --source-strings .fbt/source_strings.json > src/i18n/translatedFbts.json",
-    "manifest": "node ./node_modules/babel-plugin-fbt/bin/manifest --src src",
-    "collect-fbts": "node ./node_modules/babel-plugin-fbt/bin/collectFBT --pretty --manifest < .src_manifest.json > .source_strings.json",
-    "translate-fbts": "node ./node_modules/babel-plugin-fbt/bin/translate.js --translations src/i18n/translations/*.json --jenkins > src/i18n/translatedFbts.json",
-    "watch-server": "nodemon ./dist/js/server.js"
+    "watch-server": "nodemon ./dist/js/server.js",
+    "loadtest:fbt": "node ./test/loadtest-fbt.js"
   },
   "author": "Abhishek Prabhudesai",
   "license": "ISC",
@@ -51,7 +49,10 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-fbt": "^0.10.4",
     "css-loader": "^3.5.2",
+    "fbt-generate-translations": "0.0.4",
     "file-loader": "^6.0.0",
+    "js-beautify": "^1.11.0",
+    "loadtest": "^5.0.3",
     "mini-css-extract-plugin": "^0.9.0",
     "nodemon": "^2.0.3",
     "style-loader": "^1.1.4",

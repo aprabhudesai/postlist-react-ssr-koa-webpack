@@ -1,6 +1,6 @@
 import posts from '../stores/posts';
 
-const DEFAULT_API_RESPONSE_DELAY = 1000;
+const DEFAULT_API_RESPONSE_DELAY = 0;
 
 async function sleep(milliseconds: number) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
