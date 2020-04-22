@@ -25,6 +25,12 @@ module.exports = function(env, argv) {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
+          query: {
+            plugins: [
+              'fbt',
+              'fbt-runtime',
+            ]
+          }
         },
         // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
         {
