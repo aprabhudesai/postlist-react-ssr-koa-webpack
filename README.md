@@ -1,12 +1,22 @@
 # A Sample App that displays a list of posts
-It uses the below technologies:
+## Technologies Used
 - Typescript
 - React
 - Webpack
 - Babel
 - Koa
 
+## HTML Streaming Support
 The app does server side streaming using:
 - Multistream
 - String to Stream
 - renderToNodeStream (React)
+
+## Running the App
+1. Clone the repository by running
+```git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
+2. Install dependencies ```npm install```
+3. Generate translations (FBT) ```npm run build:fbt```
+4. Open 2 terminal tabs. In one tab run the build in watch mode ```npm run build```
+5. In second tab start the server ```npm run watch-server```
+6. You can access the application at ```http://localhost:8088```
