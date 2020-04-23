@@ -25,7 +25,10 @@ The app does server side streaming using:
 3. Generate translations (FBT) ```npm run build:fbt```
 4. Open 2 terminal tabs. In one tab run the build in watch mode ```npm run build```
 5. In second tab start the server ```npm run watch-server```
-6. You can access the application at ```http://localhost:8088```
+6. You can access the application at ```http://localhost:8088```. To specify locale add the URL param ```locale```. For e.g.
+- ```http://localhost:8088/?locale=en_US```
+- ```http://localhost:8088/?locale=fr_FR```
+- ```http://localhost:8088/?locale=jp_JP```
 
 ## Load testing the App
 1. Open a new terminal
