@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
-import posts from '../../stores/posts';
+import posts from '../../db/posts';
 
 import './index.css';
 
