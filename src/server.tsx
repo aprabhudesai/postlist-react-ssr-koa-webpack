@@ -17,6 +17,8 @@ import html from './html';
 import { getHeadSection } from './html';
 
 import { loadTranslations } from './helpers/translations';
+import sleep from './helpers/sleep';
+import requestCountMiddleware from './middleware/requestCount';
 
 var server = new Koa();
 var bodyParser = new KoaBodyParser();
@@ -24,16 +26,17 @@ const router = new KoaRouter();
 
 server.use(KoaStatic('dist'));
 server.use(bodyParser);
+server.use(requestCountMiddleware);
 server.use(router.routes());
 
 router.get('/', async (ctx) => {
-  let locale = null;
+  let locale = 'en_US';
   if (ctx.query && ctx.query.locale) {
     locale = ctx.query.locale;
   }
   
   await loadTranslations(locale);
-  
+
   // Traditional Server Side Rendering
   // const body = renderToString(<App />);
   // ctx.body = html({ body, locale });
@@ -44,8 +47,11 @@ router.get('/', async (ctx) => {
     () => renderToStaticNodeStream(getHeadSection()),
     () => stringStream('<body><div id="root">'),
     () => renderToNodeStream(<App />),
-    () => stringStream('</div><script src="js/client.js"></script></html>'),
+    () => stringStream('</div></body><script src="js/client.js"></script></html>'),
   ]);
+
+  await sleep(1000);
+
   ctx.response.type = 'text/html; charset=utf-8';
   ctx.status = 200;
   ctx.body = stream;
