@@ -35,20 +35,20 @@ router.get('/', async (ctx) => {
   await loadTranslations(locale);
   
   // Traditional Server Side Rendering
-  const body = renderToString(<App />);
-  ctx.body = html({ body, locale });
+  // const body = renderToString(<App />);
+  // ctx.body = html({ body, locale });
 
   // Stream the HTML response
-  // const stream = new MultiStream([
-  //   () => stringStream(`<!DOCTYPE html><html lang=${ locale }>`),
-  //   () => renderToStaticNodeStream(getHeadSection()),
-  //   () => stringStream('<body><div id="root">'),
-  //   () => renderToNodeStream(<App />),
-  //   () => stringStream('</div><script src="js/client.js"></script></html>'),
-  // ]);
-  // ctx.response.type = 'text/html; charset=utf-8';
-  // ctx.status = 200;
-  // ctx.body = stream;
+  const stream = new MultiStream([
+    () => stringStream(`<!DOCTYPE html><html lang=${ locale }>`),
+    () => renderToStaticNodeStream(getHeadSection()),
+    () => stringStream('<body><div id="root">'),
+    () => renderToNodeStream(<App />),
+    () => stringStream('</div><script src="js/client.js"></script></html>'),
+  ]);
+  ctx.response.type = 'text/html; charset=utf-8';
+  ctx.status = 200;
+  ctx.body = stream;
 });
 
 server.listen(8088, () => {
