@@ -45,7 +45,6 @@
     "@types/koa-router": "^7.4.0",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
-    "@types/react-redux": "^7.1.7",
     "babel-loader": "^8.1.0",
     "babel-plugin-fbt": "^0.10.4",
     "css-loader": "^3.5.2",
