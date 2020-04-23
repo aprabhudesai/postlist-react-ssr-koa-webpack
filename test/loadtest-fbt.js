@@ -1,72 +1,47 @@
 const loadtest = require('loadtest');
 var beautify_html = require('js-beautify').html;
 
-const options1 = {
-  url: 'http://localhost:8088',
-  maxRequests: 10,
-  concurrency: 5,
-  statusCallback: statusCallback1
-};
+const MAX_REQUESTS = 10;
+const CONCURRENCY = 5;
 
-function statusCallback1(error, result, latency) {
-  console.log('##### 1 #####');
+function statusCallback(error, result, latency) {
+  console.log('---------------------------------------------------');
   console.log(beautify_html(result.body));
+  console.log('---------------------------------------------------');
 }
 
-const promise1 = new Promise((resolve, reject) => {
-  loadtest.loadTest(options1, function(error, result) {
-    if (error) {
-      reject();
-      return console.error('Got an error: %s', error);
-    }
-    console.log('Tests for ENGLISH ran successfully');
-    resolve();
-  });
-});
-
-function statusCallback2(error, result, latency) {
-  console.log('##### 2 #####');
-  console.log(beautify_html(result.body));
-}
-
-const options2 = {
-  url: 'http://localhost:8088/?locale=fr_FR',
-  maxRequests: 10,
-  concurrency: 5,
-  statusCallback: statusCallback2
-};
-
-const promise2 = new Promise((resolve, reject) => {
-  loadtest.loadTest(options2, function(error, result) {
-    if (error) {
-      reject();
-      return console.error('Got an error: %s', error);
-    }
-    console.log('Tests For FRENCH ran successfully');
-    resolve();
-  });
-});
-
-const options3 = {
-    url: 'http://localhost:8088/?locale=ja_JP',
-    maxRequests: 10,
-    concurrency: 5,
-    statusCallback: statusCallback2
+function createOptionsForRequest(url) {
+  return {
+    url: url,
+    maxRequests: MAX_REQUESTS,
+    concurrency: CONCURRENCY,
+    statusCallback: statusCallback
   };
-  
-const promise3 = new Promise((resolve, reject) => {
-  loadtest.loadTest(options3, function(error, result) {
-    if (error) {
-      reject();
-      return console.error('Got an error: %s', error);
-    }
-    console.log('Tests for JAPANESE ran successfully');
-    resolve();
+}
+
+function createPromiseForLoadTest(url, language) {
+  return new Promise((resolve, reject) => {
+    const options = createOptionsForRequest(url);
+    loadtest.loadTest(options, function(error, result) {
+      if (error) {
+        reject();
+        return console.error('Got an error: %s', error);
+      }
+      console.log(`Tests for ${ language } ran successfully`);
+      resolve();
+    });
   });
-});
+}
 
 function parallelLoadTest() {
-  return Promise.all(promise1, promise2, promise3).then(() => console.log('DONE'));
+  const promise1 = createPromiseForLoadTest('http://localhost:8088', 'ENGLISH');
+  const promise2 = createPromiseForLoadTest('http://localhost:8088/?locale=fr_FR', 'FRENCH');
+  const promise3 = createPromiseForLoadTest('http://localhost:8088/?locale=ja_JP', 'JAPANESE');
+  return Promise.all([
+    promise1,
+    promise2,
+    promise3
+  ]).then(() => console.log('DONE'));
 }
 
 parallelLoadTest();
