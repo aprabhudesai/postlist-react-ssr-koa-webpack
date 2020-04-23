@@ -13,6 +13,11 @@ The app does server side streaming using:
 - String to Stream
 - renderToNodeStream (React)
 
+## Translations for
+- English
+- French
+- Japanese
+
 ## Running the App
 1. Clone the repository by running
 ```git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
