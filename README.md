@@ -31,12 +31,12 @@ The app does server side streaming using:
 - ```http://localhost:8088/?locale=jp_JP```
 
 ## Load testing the App
+### Using `curl` command (preferred)
+1. Open 3 terminals and run the following:
+- ./test/loadtest_fbt.sh en_US 100
+- ./test/loadtest_fbt.sh fr_FR 100
+- ./test/loadtest_fbt.sh ja_JP 100
+
 ### Using ```loadtest``` package
 1. Open a new terminal
 2. Run the command ```npm run loadtest:fbt```
-
-### Using `curl` command
-1. Open 3 terminals and run the following:
-- for ((i=1;i<=100;i++)); do curl --header "Connection: keep-alive" "http://localhost:8088?locale=en_US"; done
-- for ((i=1;i<=100;i++)); do curl --header "Connection: keep-alive" "http://localhost:8088?locale=fr_FR"; done
-- for ((i=1;i<=100;i++)); do curl --header "Connection: keep-alive" "http://localhost:8088?locale=ja_JP"; done
