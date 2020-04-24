@@ -40,3 +40,11 @@ The app does server side streaming using:
 ### Using ```loadtest``` package
 1. Open a new terminal
 2. Run the command ```npm run loadtest:fbt```
+
+## Current Issue with FBT
+In the terminal that you execute the load test commands, you should see the html being returned from server. You have to observe two things:
+- ```<html lang"">``` - which is the locale we specified
+- the translated text sent back
+
+For e.g. In one of the runs I saw this:
+```html lang=ja_JP``` but text is in ```french```
