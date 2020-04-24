@@ -30,27 +30,34 @@ server.use(requestCountMiddleware);
 server.use(router.routes());
 
 router.get('/', async (ctx) => {
+  // Simulate the slowness of getting initial app data via an API call
+  await sleep(1000);
+
   let locale = 'en_US';
   if (ctx.query && ctx.query.locale) {
     locale = ctx.query.locale;
   }
-  
   await loadTranslations(locale);
 
   // Traditional Server Side Rendering
   // const body = renderToString(<App />);
   // ctx.body = html({ body, locale });
 
+  // Simulate the time it will take for a production app to actually create the stream
+  const getSlowStream = async () => {
+    await sleep(500);
+    return stringStream('<body><div id="root">');
+  }
+
+  const slowStream = await getSlowStream();
   // Stream the HTML response
   const stream = new MultiStream([
     () => stringStream(`<!DOCTYPE html><html lang=${ locale }>`),
     () => renderToStaticNodeStream(getHeadSection()),
-    () => stringStream('<body><div id="root">'),
+    () => slowStream,
     () => renderToNodeStream(<App />),
     () => stringStream('</div></body><script src="js/client.js"></script></html>'),
   ]);
-
-  await sleep(1000);
 
   ctx.response.type = 'text/html; charset=utf-8';
   ctx.status = 200;

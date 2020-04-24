@@ -1,7 +1,7 @@
 const loadtest = require('loadtest');
 var beautify_html = require('js-beautify').html;
 
-const MAX_REQUESTS = 10;
+const MAX_REQUESTS = 20;
 const CONCURRENCY = 5;
 
 function statusCallback(error, result, latency) {
