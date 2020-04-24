@@ -33,9 +33,9 @@ The app does server side streaming using:
 ## Load testing the App
 ### Using `curl` command (preferred)
 1. Open 3 terminals and run the following:
-- ./test/loadtest_fbt.sh en_US 100
-- ./test/loadtest_fbt.sh fr_FR 100
-- ./test/loadtest_fbt.sh ja_JP 100
+- ```./test/loadtest_fbt.sh en_US 100```
+- ```./test/loadtest_fbt.sh fr_FR 100```
+- ```./test/loadtest_fbt.sh ja_JP 100```
 
 ### Using ```loadtest``` package
 1. Open a new terminal
