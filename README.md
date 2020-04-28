@@ -19,6 +19,7 @@ The app does server side streaming using:
 - Japanese
 
 ## Running the App
+Note: Required minimum node version is `12`
 1. Clone the repository by running
 ```git clone git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
 2. Run ```cd postlist-react-ssr-koa-webpack/```
@@ -26,7 +27,7 @@ The app does server side streaming using:
 4. Generate translations (FBT) ```npm run build:fbt```
 5. Open 2 terminal tabs.
    - In one tab run the build in watch mode ```npm run build```
-   - In second tab start the server ```npm run watch-server```
+   - In second tab start the server ```npm run watch-server```. Make sure you are running node version `12` or above
 6. You can access the application at ```http://localhost:8088```. To specify locale add the URL param ```locale```. For e.g.
    - ```http://localhost:8088/?locale=en_US```
    - ```http://localhost:8088/?locale=fr_FR```
