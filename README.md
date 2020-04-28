@@ -39,6 +39,8 @@ The app does server side streaming using:
    - ```./test/loadtest-fbt.sh en_US 100```
    - ```./test/loadtest-fbt.sh fr_FR 100```
    - ```./test/loadtest-fbt.sh ja_JP 100```
+   
+   If you get file permissions error please run ```chmod +x loadtest-fbt.sh```
 
 ### Using ```loadtest``` package
 1. Open a new terminal
