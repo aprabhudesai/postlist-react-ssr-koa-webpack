@@ -7,7 +7,7 @@ module.exports = function(env, argv) {
   // default to the server configuration
   const base = {
     mode: 'development',
-    entry: './src/server.ts',
+    entry: './src/server.tsx',
     output: {
       filename: 'js/server.js',
       // path needs to be an ABSOLUTE file path

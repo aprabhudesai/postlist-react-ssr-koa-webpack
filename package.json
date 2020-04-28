@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Demo showing FBT integrated with HTML streaming",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "scripts": {
     "build": "npm run build-server & npm run build-client",
     "build-server": "webpack --env.platform=server",
