@@ -19,7 +19,7 @@ The app does server side streaming using:
 - Japanese
 
 ## Running the App
-Note: Required minimum node version is `12`
+**Note:** Required minimum node version is `12`
 1. Clone the repository by running
 ```git clone git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
 2. Run ```cd postlist-react-ssr-koa-webpack/```
