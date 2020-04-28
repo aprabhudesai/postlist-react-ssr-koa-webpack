@@ -28,7 +28,7 @@ The app does server side streaming using:
 6. You can access the application at ```http://localhost:8088```. To specify locale add the URL param ```locale```. For e.g.
 - ```http://localhost:8088/?locale=en_US```
 - ```http://localhost:8088/?locale=fr_FR```
-- ```http://localhost:8088/?locale=jp_JP```
+- ```http://localhost:8088/?locale=ja_JP```
 
 ## Load testing the App
 ### Using `curl` command (preferred)
