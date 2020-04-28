@@ -20,12 +20,13 @@ The app does server side streaming using:
 
 ## Running the App
 1. Clone the repository by running
-```git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
-2. Install dependencies ```npm install```
-3. Generate translations (FBT) ```npm run build:fbt```
-4. Open 2 terminal tabs. In one tab run the build in watch mode ```npm run build```
-5. In second tab start the server ```npm run watch-server```
-6. You can access the application at ```http://localhost:8088```. To specify locale add the URL param ```locale```. For e.g.
+```git clone git@github.com:aprabhudesai/postlist-react-ssr-koa-webpack.git```
+2. Run ```cd postlist-react-ssr-koa-webpack/```
+3. Install dependencies ```npm install```
+4. Generate translations (FBT) ```npm run build:fbt```
+5. Open 2 terminal tabs. In one tab run the build in watch mode ```npm run build```
+6. In second tab start the server ```npm run watch-server```
+7. You can access the application at ```http://localhost:8088```. To specify locale add the URL param ```locale```. For e.g.
 - ```http://localhost:8088/?locale=en_US```
 - ```http://localhost:8088/?locale=fr_FR```
 - ```http://localhost:8088/?locale=ja_JP```
