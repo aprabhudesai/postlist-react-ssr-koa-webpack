@@ -47,9 +47,71 @@ The app does server side streaming using:
 2. Run the command ```npm run loadtest:fbt```
 
 ## Current Issue with FBT
-In the terminal that you execute the load test commands, you should see the html being returned from server. You have to observe two things:
-   - ```<html lang"">``` - which is the locale we specified
-   - the translated text sent back
+In the terminal(s) that you execute the load test commands, you should see the html being returned from server. You have to observe two things:
+   - ```<html lang"<locale>">``` - which has the locale we specified in our loadtest
+   - the translated text sent back in the HTML
 
 For e.g. In one of the runs I saw this:
-```html lang=ja_JP``` but text is in ```french```
+   - ```html lang=fr_FR```
+   - HTML returned is in ```japanese```:
+     ```
+     <html lang=fr_FR>
+         <head>
+            <link rel="stylesheet" href="main.css"/>
+            <style>#root {
+               display: flex;
+               justify-content: center;
+               }
+            </style>
+         </head>
+         <body>
+            <div id="root">
+               <div class="post-list" data-reactroot="">
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは最初の投稿です</div>
+                        <div>その日の最初の投稿.</div>
+                     </div>
+                  </div>
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは2番目の投稿です</div>
+                        <div>その日の2番目のポスト.</div>
+                     </div>
+                  </div>
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは3番目の投稿です</div>
+                        <div>今日のThridポスト.</div>
+                     </div>
+                  </div>
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは4番目の投稿です</div>
+                        <div>今日の4番目のポスト.</div>
+                     </div>
+                  </div>
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは5番目の投稿です</div>
+                        <div>今日の5番目のポスト.</div>
+                     </div>
+                  </div>
+                  <div class="post">
+                     <div class="col1"><img class="icon" src="img/post_image.jpg"/></div>
+                     <div class="col2">
+                        <div>これは6番目の投稿です</div>
+                        <div>今日の6番目のポスト.</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </body>
+         <script src="js/client.js"></script>
+      </html>
+     ```
